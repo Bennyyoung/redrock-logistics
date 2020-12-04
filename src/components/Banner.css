@@ -1,0 +1,71 @@
+.header-info {
+    padding: 2px 0;
+}
+.header-info .info-box {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0px;
+}
+.header-info .info-box:last-child{
+    padding-right: 0px;
+}
+.header-info .info-box:last-child .text-box{
+    float: right;
+}
+.header-info .info-box .icon-box, .header-info .info-box .text-box {
+    display: table-cell;
+    vertical-align: middle;
+}
+.header-info .info-box .icon-box, .header-info .info-box .text-box {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: left;
+}
+.header-info .info-box p {
+    color: #fff;
+    line-height: 24px;
+    margin: 0;
+    font-weight: 600;
+}
+.header-info .info-box .icon-box {
+    padding-right: 20px;
+    width: 65px;
+}
+
+.banner-section::before {
+    content: "";
+    background: #2A4184;
+    height: 1px;
+    position: relative;
+    top: -47px;
+    z-index: 1;
+    display: block;
+}
+
+.banner-section {
+    padding: 50px 0;
+    background: #223366;
+    text-align: center;
+}
+
+.banner-section h2 {
+    color: #222222;
+    font-size: 17px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    margin: 0 0 15px;
+    margin-bottom: 0;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.banner-section h2 a {
+    display: inline-block;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    margin-left: 60px;
+}

@@ -1,0 +1,43 @@
+body {
+
+  font-family: lato;
+}
+
+p {
+  font-size: 14px;
+  color: #666666;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  line-height: 24px;
+  margin: 0 0 10px;
+}
+
+h2.box-header {
+  text-align: center;
+  font-size: 29px;
+  line-height: 40px;
+  text-transform: uppercase;
+}
+
+h2.box-header::after {
+  width: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  display: block;
+  content: "";
+  background: #F4BC16;
+  height: 2px;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.title {
+  text-align: center;
+}
+
+.title p {
+  margin: 20px 0px 60px;
+}
