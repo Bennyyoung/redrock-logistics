@@ -12,7 +12,7 @@ export default function Banner() {
 
                     <div className="info-box col-md-3">
                         <div className="icon-box no-border">
-                            <img src={time} />
+                            <img src={time} alt=""/>
                         </div>
                         <div className="text-box">
 							<p className="highlighted">Mon - Sat 9.00 - 18.00</p>

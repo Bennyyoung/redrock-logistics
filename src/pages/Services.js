@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from 'react-router-dom'
 import service1 from '../upload/others/service1.jpg'
 import service2 from '../upload/others/service2.jpg'
 import service3 from '../upload/others/service3.jpg'
@@ -20,8 +21,8 @@ export default function Services() {
                         </div>
                         <div className="col-md-6">
                             <ul className="page-depth">
-                                <li><a href="index.html">Express</a></li>
-                                <li><a href="services.html">Services</a></li>
+                                <li><Link to href="/express">Express</Link></li>
+                                <li><Link to href="services.html">Services</Link></li>
                             </ul>
                         </div>
                     </div>
@@ -48,7 +49,7 @@ export default function Services() {
                                     <ul className="information-list">
                                         <li><i className="fa fa-map-marker"></i><span>A 41, Pandav Nagar Complex, New Delhi</span></li>
                                         <li><i className="fa fa-phone"></i><span>+1 612-4000-5000</span><span>+1 612-4500-4500</span></li>
-                                        <li><i className="fa fa-envelope-o"></i><a href="#">deepak@gmail.com</a></li>
+                                        <li><i className="fa fa-envelope-o"></i><a mailto="info@RedRockng.com">info@RedRockng.com</a></li>
                                     </ul>
                                 </div>
                             </div>

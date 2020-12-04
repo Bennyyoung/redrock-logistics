@@ -17,7 +17,7 @@ export default function Contact() {
                                 </div>
                                 <textarea name="comment" id="comment" placeholder="Message"></textarea>
                                 <input type="submit" id="submit_contact" value="Send Message" />
-                                    <div id="msg" class="message"></div>
+                                    <div id="msg" className="message"></div>
 					</form>
                 </div>
                             <div className="col-md-4">
@@ -27,7 +27,7 @@ export default function Contact() {
                                     <ul className="information-list">
                                         <li><i className="fa fa-map-marker"></i><span>A 41 Pandav Nagar, New Delhi, India, 110005</span></li>
                                         <li><i className="fa fa-phone"></i><span>+91 4000-5000</span><span>+91 4500-4000</span></li>
-                                        <li><i className="fa fa-envelope-o"></i><a href="#">express@gmail.com</a></li>
+                                        <li><i className="fa fa-envelope-o"></i><a mailto="info@RedRockng.com">info@RedRockng.com</a></li>
                                     </ul>
                                 </div>
                             </div>

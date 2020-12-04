@@ -6,7 +6,7 @@ import "./About.css"
 export default function About() {
     return (
         <>
-            <section class="about-section">
+            <section className="about-section">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">

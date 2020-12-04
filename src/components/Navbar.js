@@ -79,7 +79,7 @@ export default class Navbar extends Component {
                                         </ul>
                                     </li>
                                     <li className="drop"><Link to="/gallery">Gallery</Link>
-                                        <ul class="dropdown">
+                                        <ul className="dropdown">
                                             <li><a href="gallery-2col.html">Gallery 2 Colums</a></li>
                                             <li><a href="gallery-3col.html">Gallery 3 Colums</a></li>
                                             <li><a href="gallery.html">Gallery 4 Colums</a></li>
