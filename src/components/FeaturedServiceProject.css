@@ -1,0 +1,35 @@
+.quote-section {
+    padding: 70px 0;
+    /* 	background:#161029; */
+    background: url('../upload/others/quote-bg.png');
+    background-size: cover;
+  }
+  
+  .quote-section .button-one {
+    margin-top: 15px;
+    float: left;
+    text-decoration: none;
+  }
+  
+  .quote-section .content {
+    padding: 35px 0px;
+  }
+  
+  .quote-section .titles {
+    margin-bottom: 25px;
+  }
+  
+  .quote-section h2 {
+    font-size: 30px;
+    color: #fff;
+    margin: 0px 0px 5px;
+  }
+  
+  .quote-section #contact-form h2 {
+    text-transform: uppercase;
+  }
+  
+  .quote-section p {
+    color: #fff;
+    line-height: 24px;
+  }

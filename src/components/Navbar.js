@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
 import "./Navbar.css"
-import logo from "../images/logo.png"
+import logo from "../images/logo.jpg"
 
 export default class Navbar extends Component {
     state = {
@@ -52,7 +52,7 @@ export default class Navbar extends Component {
                                     <span className="icon-bar"></span>
                                     <span className="icon-bar"></span>
                                 </button>
-                                <Link to="/" className="navbar-brand"><img src="images/logo.png" alt="" />RedRock Logistics</Link>
+                                <Link to="/" className="navbar-brand"><img src={logo} alt="Sonic Logistics" Width="120px" Height="120px"/></Link>
                             </div>
 
                             {/* <!-- Collect the nav links, forms, and other content for toggling --> */}
