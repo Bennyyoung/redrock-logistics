@@ -2,28 +2,28 @@ const mongoose = require("mongoose");
 
 const schema = new mongoose.Schema(
   {
-    sendersname: {
+    sendersName: {
       type: String,
       required: true,
       unique: true,
       trim: true,
       minlength: 2,
     },
-    sendersaddress: {
+    sendersAddress: {
       type: String,
       required: true,
       unique: true,
       trim: true,
       minlength: 2,
     },
-    sendersphone: {
+    sendersPhone: {
       type: Number,
       required: true,
       unique: true,
       trim: true,
       minlength: 2,
     },
-    sendersemail: {
+    sendersEmail: {
       type: String,
       required: true,
       unique: true,
@@ -31,28 +31,28 @@ const schema = new mongoose.Schema(
       minlength: 2,
     },
 
-    receiversname: {
+    receiversName: {
       type: String,
       required: true,
       unique: true,
       trim: true,
       minlength: 2,
     },
-    receiversaddress: {
+    receiversAddress: {
       type: String,
       required: true,
       unique: true,
       trim: true,
       minlength: 2,
     },
-    receiversphone: {
-      type: String,
+    receiversPhone: {
+      type: Number,
       required: true,
       unique: true,
       trim: true,
       minlength: 2,
     },
-    receiversemail: {
+    receiversEmail: {
       type: String,
       required: true,
       unique: true,
@@ -95,7 +95,7 @@ const schema = new mongoose.Schema(
       trim: true,
       minlength: 2,
     },
-    typeofshipment: {
+    typeOfShipment: {
       type: String,
       required: true,
       unique: true,
@@ -110,7 +110,7 @@ const schema = new mongoose.Schema(
       trim: true,
       minlength: 2,
     },
-    shipmentmode: {
+    shipmentMode: {
       type: String,
       required: true,
       unique: true,
@@ -131,7 +131,7 @@ const schema = new mongoose.Schema(
       trim: true,
       minlength: 2,
     },
-    waybill: {
+    wayBill: {
       type: Number,
       required: true,
       unique: true,

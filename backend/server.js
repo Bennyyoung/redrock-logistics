@@ -1,40 +1,28 @@
+require("dotenv").config();
+
 const mongoose = require(`mongoose`);
-
-const express = require('express');
-const cors = require('cors');
-
-require('dotenv').config();
+const express = require("express");
+const cors = require("cors");
 
 const app = express();
-const port = process.env.PORT || 5000;
-
 app.use(cors());
 app.use(express.json());
 
-const uri = process.env.ATLAS_URI;
+mongoose
+  .connect(`${process.env.ATLAS_URI}`, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("Connected to database");
+  })
+  .catch(console.log);
 
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true }
-);
+const apiRouter = require("./api/api.router.js");
+app.use("/api", apiRouter);
 
-const connection = mongoose.connection;
-connection.once('open', () => {
-    console.log("MongoDB database connection established successfully");
-})
-
-// const exercisesRouter = require('./routes/exercises');
-const sendersRouter = require('./routes/sender');
-const receiversRouter = require('./routes/receiver');
-const createshipmentsRouter = require('./routes/createshipments');
-
-
-
-// app.use('/exercises', exercisesRouter);
-app.use('/sender', sendersRouter)
-app.use('/receiver', receiversRouter)
-app.use('/createshipments', createshipmentsRouter)
-
-
-
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
-    console.log(`Server is running on port: ${port}`);
+  console.log(`Server is running on port: ${port}`);
 });
