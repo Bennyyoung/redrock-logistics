@@ -7,9 +7,9 @@ const cors = require("cors");
 const app = express();
 app.use(cors());
 app.use(express.json());
-
+// process.env.ATLAS_URI;
 mongoose
-  .connect(`${process.env.ATLAS_URI}`, {
+  .connect(`${process.env.MONGO_DB_URI}`, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,

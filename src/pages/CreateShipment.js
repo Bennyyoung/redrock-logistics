@@ -196,7 +196,7 @@ export default class CreateShipment extends Component {
     console.log(newShipment);
 
     axios
-      .post("http://localhost:5000/shipment/create", newShipment)
+      .post("http://localhost:5000/api/shipment", newShipment)
       .then((res) => console.log(res.data));
 
     this.setState({

@@ -22,7 +22,7 @@ module.exports = [
         res.json({
           status: true,
           body: {
-            message: "Shipments found!",
+            message: "Query successful!",
             shipments: doc,
           },
         });
