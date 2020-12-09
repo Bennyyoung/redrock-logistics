@@ -7,6 +7,9 @@ import Home from "./pages/Home"
 import About from './pages/About';
 import Services from "./pages/Services"
 import Tracker from "./pages/Tracker";
+import Dashboard from "./components/Dashboard";
+import CreateShipment from "./pages/CreateShipment";
+import ViewShipments from "./pages/ViewShipments";
 
 
 function App() {
@@ -18,6 +21,11 @@ function App() {
         <Route exact path="/about" component={About}/>
         <Route exact path="/services" component={Services} />
         <Route exact path="/track" component={Tracker} />
+        <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/create" component={CreateShipment} />
+        <Route exact path="/view" component={ViewShipments} />
+
+
 
         <Route exact path="/contact" component={Contact} />
 

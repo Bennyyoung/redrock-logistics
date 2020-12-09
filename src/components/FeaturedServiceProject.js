@@ -1,71 +1,113 @@
 import React from 'react'
-
-const validEmailRegex = RegExp(
-    /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
-);
-
-const validateForm = errors => {
-    let valid = true;
-    Object.values(errors).forEach(val => val.length > 0 && (valid = false));
-    return valid;
-};
+import axios from 'axios'
+import ReceiverForm from './ReceiverForm';
 export default class FeaturedServiceProject extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            firstName: null,
-            lastName: null,
-            email: null,
-            errors: {
-                firstName: '',
-                lastName: '',
-                email: '',
-            }
+            firstname: '',
+            lastname: '',
+            city: '',
+            state: '',
+            email: '',
+            phonenumber: '',
+            personorcargo: '',
+            message: '',
+
         };
+
+        this.onChangeFirstname = this.onChangeFirstname.bind(this)
+        this.onChangeLastname = this.onChangeLastname.bind(this)
+        this.onChangeCity = this.onChangeCity.bind(this)
+        this.onChangeState = this.onChangeState.bind(this)
+        this.onChangeEmail = this.onChangeEmail.bind(this)
+        this.onChangePhonenumber = this.onChangePhonenumber.bind(this)
+        this.onChangePersonorcargo = this.onChangePersonorcargo.bind(this)
+        this.onChangeMessage = this.onChangeMessage.bind(this)
+        this.onSubmit = this.onSubmit.bind(this);
+
     }
 
-    handleChange = (event) => {
-        event.preventDefault();
-        const { name, value } = event.target;
-        let errors = this.state.errors;
-
-        switch (name) {
-            case 'firstName':
-                errors.firstName =
-                    value.length < 5
-                        ? 'First Name must be at least 2 characters long!'
-                        : '';
-                break;
-            case 'lastName':
-                errors.lastName =
-                    value.length < 5
-                        ? 'Last Name must be at least 2 characters long!'
-                        : '';
-                break;
-            case 'email':
-                errors.email =
-                    validEmailRegex.test(value)
-                        ? ''
-                        : 'Email is not valid!';
-                break;
-            default:
-                break;
-        }
-
-        this.setState({ errors, [name]: value });
+    onChangeFirstname(e) {
+        this.setState({
+            firstname: e.target.value
+        });
     }
 
-    handleSubmit = (event) => {
-        event.preventDefault();
-        if (validateForm(this.state.errors)) {
-            console.info('Valid Form')
-        } else {
-            console.error('Invalid Form')
-        }
+    onChangeLastname(e) {
+        this.setState({
+            lastname: e.target.value
+        });
+    }
+
+    onChangeCity(e) {
+        this.setState({
+            city: e.target.value
+        });
+    }
+
+    onChangeState(e) {
+        this.setState({
+            state: e.target.value
+        });
+    }
+
+    onChangeEmail(e) {
+        this.setState({
+            email: e.target.value
+        });
+    }
+
+    onChangePhonenumber(e) {
+        this.setState({
+            phonenumber: e.target.value
+        });
+    }
+
+    onChangePersonorcargo(e) {
+        this.setState({
+            personorcargo: e.target.value
+        });
+    }
+
+    onChangeMessage(e) {
+        this.setState({
+            message: e.target.value
+        });
+    }
+
+    onSubmit(e) {
+        e.preventDefault();
+
+        const newSender = {
+            firstname: this.state.firstname,
+            lastname: this.state.lastname,
+            city: this.state.city,
+            state: this.state.state,
+            email: this.state.email,
+            phonenumber: this.state.phonenumber,
+            personorcargo: this.state.personorcargo,
+            message: this.state.message,
+        };
+
+        console.log(newSender);
+
+        axios.post('http://localhost:5000/sender/add', newSender)
+            .then(res => console.log(res.data));
+
+        this.setState({
+            firstname: '',
+            lastname: '',
+            city: '',
+            state: '',
+            email: '',
+            phonenumber: '',
+            personorcargo: '',
+            message: ''
+        })
     }
 
     render() {
-        const { errors } = this.state;
 
         return (
             <>
@@ -94,97 +136,61 @@ export default class FeaturedServiceProject extends React.Component {
                         </div>
                         <div className="col-md-5 col-xs-12 col-md-offset-1">
 
-                            <form id="contact-form" className="needs-validation" onSubmit={this.handleSubmit} novalidate>
+                            <form id="contact-form" className="needs-validation" onSubmit={this.onSubmit} noValidate>
                                 <div className="titles">
                                     <h2>request a quote</h2>
                                     <p>* for detailed quote use extended version</p>
                                 </div>
+                                    <p style={{color: 'red'}}>Please fill in both senders and receivers form</p>
                                 <fieldset>
                                     <legend>Sender</legend>
                                     <div className="row">
                                         <div className="col-md-6">
-                                            <label for="firstName">First Name</label>
-                                            <input type="text" className="form-control" id="firstName" placeholder="First Name" onChange={this.handleChange} novalidate required />
-                                            {errors.firstName.length > 0 &&
-                                                <span className='error'>{errors.firstName}</span>}
+                                            <label htmlFor="firstName">First Name</label>
+                                            <input type="text" className="form-control" id="firstName" placeholder="First Name" value={this.state.firstname} onChange={this.onChangeFirstname} noValidate required />
+
                                         </div>
 
                                         <div className="col-md-6">
-                                            <label for="lastName">Last Name</label>
-                                            <input type="text" className="form-control" id="lastName" placeholder="Last Name" required novalidate onChange={this.handleChange} required />
-                                            {errors.lastName.length > 0 &&
-                                                <span className='error'>{errors.lastName}</span>}
+                                            <label htmlFor="lastName">Last Name</label>
+                                            <input type="text" className="form-control" id="lastName" placeholder="Last Name" value={this.state.lastname} onChange={this.onChangeLastname} noValidate required />
+
                                         </div>
 
                                         <div className="col-md-6">
-                                            <label for="city">City</label>
-                                            <input type="text" class="form-control" id="city" placeholder="City" required />
+                                            <label htmlFor="city">City</label>
+                                            <input type="text" className="form-control" id="city" placeholder="City" value={this.state.city} onChange={this.onChangeCity} required />
                                         </div>
 
                                         <div className="col-md-6">
-                                            <label for="state">State</label>
-                                            <input type="text" className="form-control" id="state" placeholder="State" required />
+                                            <label htmlFor="state">State</label>
+                                            <input type="text" className="form-control" id="state" placeholder="State" value={this.state.state} onChange={this.onChangeState} required />
                                         </div>
 
 
                                         <div className="col-md-6">
-                                            <label for="lastName">Email</label>
-                                            <input type="text" className="form-control" id="email" placeholder="Email" required />
+                                            <label htmlFor="lastName">Email</label>
+                                            <input type="text" className="form-control" id="email" placeholder="Email" value={this.state.email} onChange={this.onChangeEmail} required />
                                         </div>
 
                                         <div className="col-md-6">
-                                            <label for="phoneNumber">Phone Number</label>
-                                            <input type="number" className="form-control" id="phoneNumber" placeholder="Phone Number" required />
+                                            <label htmlFor="phoneNumber">Phone Number</label>
+                                            <input type="number" className="form-control" id="phoneNumber" placeholder="Phone Number" value={this.state.phonenumber} onChange={this.onChangePhonenumber} required />
                                         </div>
 
                                         <div className="col-md-6">
-                                            <label for="personOrCargo">Person / Cargo</label>
-                                            <input type="text" class="form-control" id="personOrCargo" placeholder="Person / Cargo" required />
+                                            <label htmlFor="personOrCargo">Person / Cargo</label>
+                                            <input type="text" className="form-control" id="personOrCargo" placeholder="Person / Cargo" value={this.state.personorcargo} onChange={this.onChangePersonorcargo} required />
                                         </div>
                                     </div>
                                 </fieldset>
-                                <textarea name="comment" id="comment" placeholder="Message"></textarea>
+                                <textarea name="comment" id="comment" placeholder="Message" value={this.state.message} onChange={this.onChangeMessage}></textarea>
                                 <input value="Submit Now" type="submit" />
-                                <div id="msg" class="message"></div>
-
-                                <fieldset>
-                                    <legend>Receiver</legend>
-                                    <div className="row">
-                                        <div className="col-md-6">
-                                            <label for="firstName">Receiver's First Name</label>
-                                            <input type="text" className="form-control" id="firstName" placeholder="First Name" required />
-                                            {errors.firstName.length > 0 &&
-                                                <span className='error'>{errors.firstName}</span>}
-                                        </div>
-
-                                        <div className="col-md-6">
-                                            <label for="lastName">Receiver's Last Name</label>
-                                            <input type="text" className="form-control" id="lastName" placeholder="Last Name" required />
-                                            {errors.lastName.length > 0 &&
-                                                <span className='error'>{errors.lastName}</span>}
-                                        </div>
-
-                                        <div className="col-md-6">
-                                            <label for="city">City</label>
-                                            <input type="text" className="form-control" id="city" placeholder="City" required />
-                                        </div>
-
-                                        <div className="col-md-6">
-                                            <label for="state">State</label>
-                                            <input type="text" className="form-control" id="state" placeholder="State" required />
-                                        </div>
-
-
-                                        <div className="col-md-6">
-                                            <label for="lastName">Email or Phone Number</label>
-                                            <input type="text" className="form-control" id="email" placeholder="Email or Number" required />
-                                        </div>
-                                    </div>
-
-                                </fieldset>
-                                <input id="submit_contact" value="Submit Now" type="submit" />
                                 <div id="msg" className="message"></div>
+
                             </form>
+
+                            <ReceiverForm />
                         </div>
                     </div>
                 </section>

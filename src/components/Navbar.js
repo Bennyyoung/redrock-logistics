@@ -45,14 +45,14 @@ export default class Navbar extends Component {
                         <div className="container">
                             {/* <!-- Brand and toggle get grouped for better mobile display --> */}
                             <div className="navbar-header">
-                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                <button type="button" className="navbar-toggle collapsed" data-toggle="collapse"
                                     data-target="#bs-example-navbar-collapse-1">
                                     <span className="sr-only">Toggle navigation</span>
                                     <span className="icon-bar"></span>
                                     <span className="icon-bar"></span>
                                     <span className="icon-bar"></span>
                                 </button>
-                                <Link to="/" className="navbar-brand"><img src={logo} alt="Sonic Logistics" Width="120px" Height="120px"/></Link>
+                                <Link to="/" className="navbar-brand"><img src={logo} alt="Sonic Logistics" width="120px" height="120px"/></Link>
                             </div>
 
                             {/* <!-- Collect the nav links, forms, and other content for toggling --> */}
